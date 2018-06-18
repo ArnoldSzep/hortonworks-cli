@@ -1,0 +1,16 @@
+$color_primary: #012a46;
+$color_primary_light: #7f8a92;
+$color_primary_lighter: #eef5f5;
+$color_warning: #e34040;
+
+
+$base: 16;
+
+@function rem($px, $base: $base) {
+    @return ($px / $base) * 1rem;
+}
+
+
+
+$bxs: 0 0 rem(11) rgba(#000, 0.1);
+

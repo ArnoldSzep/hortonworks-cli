@@ -1,0 +1,33 @@
+<div class="search-input_wrap">
+  <input #search_input class="search-input" type="text" name="" placeholder="search for a repository" (keydown)="($event.keyCode === 13 ? search(search_input.value) : '')">
+  <span class="search-empty" (click)="searchHide = true; search_input.value = ''; searchError = ''">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 213">
+      <path d="M131.8 106.5l76-76a17.9 17.9 0 1 0-25.4-25.3l-76 76-75.8-76A17.9 17.9 0 1 0 5.2 30.6l76 75.9-76 76a17.9 17.9 0 0 0 25.4 25.2l75.9-75.9 76 76a17.9 17.9 0 1 0 25.2-25.4l-75.9-76z"
+      />
+    </svg>
+  </span>
+  <span class="search-button" (click)="search(search_input.value)">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+      <path d="M244 215l-54-55-1-1a103 103 0 1 0-30 30l1 1 55 54a21 21 0 0 0 29-29zm-141-45a67 67 0 1 1 0-134 67 67 0 0 1 0 134z"
+      />
+    </svg>
+  </span>
+</div>
+
+<div class="search-loading" *ngIf="searchLoading">
+  <img src="/assets/loader.gif" alt="">
+</div>
+
+<div class="error" *ngIf="searchError">
+    {{searchError}}
+</div>
+
+<div class="search-item_wrap" *ngIf="!searchHide">
+  <a routerLink="/repo/{{repo.full_name}}" class="search_item" (click)="searchHide = true;search_input.value = ''" *ngFor="let repo of searchResults">
+    <span class="search_item-icon">
+      <img src="{{repo.owner.avatar_url + '&s=38'}}" alt="{{repo.full_name}}" width="38" height="38">
+    </span>
+    <span class="search_item-name">{{repo.full_name}}</span>
+    <span class="search_item-desc">{{repo.description}}</span>
+  </a>
+</div>

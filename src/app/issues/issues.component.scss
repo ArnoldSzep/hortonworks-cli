@@ -1,0 +1,86 @@
+@import "../../mixins";
+
+.issues {
+    h1{
+        margin: 0; 
+    }
+
+    &-item {
+        border-bottom: 1px solid $color_primary_lighter;
+        padding: rem(10) rem(62) rem(10) 0;
+        position: relative;
+
+        &:last-child{
+            border-bottom: 0;
+        }
+
+        @media (min-width: rem(480)){
+            padding-left: rem(10);
+        }
+    }
+
+    &-title {
+        line-height: 1.2;
+        font-weight: 700;
+    }
+
+    &-date,
+    &-number{
+        font-size: rem(13);
+        color: $color_primary_light;
+        display: inline-block;
+        margin-right: rem(10);
+    }
+
+    &-comments{
+        font-size: rem(15);
+        position: absolute;
+        right: rem(38);
+        top: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        color: $color_primary_light;
+
+        svg{
+            margin-left: rem(3);
+            display: inline-block;
+            vertical-align: middle;
+            width: rem(16);
+            height: rem(16);
+            fill: currentColor;
+        }
+    }
+
+    &-link {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: rem(30);
+        height: rem(30);
+        color: $color_primary;
+        font-weight: 700;
+        background: $color_primary_lighter;
+        text-align: center;
+        text-decoration: none;
+
+        &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            display: block;
+            border-top: rem(4) solid transparent;
+            border-bottom: rem(4) solid transparent;
+            border-left: rem(7) solid currentColor;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+}

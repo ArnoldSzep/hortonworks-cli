@@ -1,0 +1,24 @@
+
+  <div class="error" *ngIf="issueError">
+      <br> Something Ain't Right Here
+    </div>
+
+<div class="issues box_style" *ngIf="!issueError">
+  <a href="/repo/{{repoUser}}/{{repoName}}/" class="button button--v2 button--prev fr">Back</a>
+  <h1>{{repoName}}</h1>
+  <div class="cl"></div>
+
+  <br>
+  <div class="issues-item" *ngFor="let issue of issueData">
+    <a href="{{issue.html_url}}" class="issues-link" target="_blank" rel="noopener"></a>
+    <div class="issues-title">{{issue.title}}</div>
+    <span class="issues-number">#{{issue.number}}</span>
+    <span class="issues-date">Created on {{issue.created_at | date:'yyyy MMMM dd'}}</span>
+    <span class="issues-comments">
+      {{issue.comments}}
+      <svg viewBox="0 0 16 16">
+        <path d="M14 1H2a1 1 0 0 0-1 1v8c0 .6.5 1 1 1h2v3.5L7.5 11H14c.6 0 1-.5 1-1V2c0-.6-.5-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z" />
+      </svg>
+    </span>
+  </div>
+</div>
