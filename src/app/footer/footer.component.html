@@ -3,6 +3,8 @@
     {{date | date:'yyyy'}} © Copyright - All your pizza are belong to us!
   </div>
   <picture>
-    <img src="/assets/footer_lg.jpg" alt="">
+    <source media="(min-width: 120em)" srcset="/assets/footer_xl.jpg 1x">
+    <source media="(min-width: 32.5em)" srcset="/assets/footer_lg.jpg 1x">
+    <img src="/assets/footer_sm.jpg" alt="">
   </picture>
 </footer>
